@@ -99,7 +99,7 @@ body{
 
 .badge{
     display:inline-block;
-    background:#dff5f6;
+    background:#E8EEF5;
     color:#163A5F;
     padding:10px 18px;
     border-radius:999px;
@@ -366,7 +366,7 @@ section{
 }
 .promo-badge{
     display:inline-block;
-    background:#dff5f6;
+    background:#E8EEF5;
     color:#163A5F;
     padding:10px 16px;
     border-radius:999px;
