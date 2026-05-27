@@ -50,7 +50,7 @@ body{
 }
 
 .logo-py{
-    color:#0f5c63;
+    color:#163A5F;
 }
 
 .menu{
@@ -66,11 +66,11 @@ body{
 }
 
 .menu a:hover{
-    color:#0f5c63;
+    color:#163A5F;
 }
 
 .btn-nav{
-    background:#0f5c63;
+    background:#163A5F;
     color:white;
     text-decoration:none;
     padding:12px 22px;
@@ -100,7 +100,7 @@ body{
 .badge{
     display:inline-block;
     background:#dff5f6;
-    color:#0f5c63;
+    color:#163A5F;
     padding:10px 18px;
     border-radius:999px;
     font-weight:600;
@@ -126,7 +126,7 @@ body{
 }
 
 .btn-primary{
-    background:#0f5c63;
+    background:#163A5F;
     color:white;
     padding:16px 26px;
     border-radius:14px;
@@ -172,7 +172,7 @@ section{
 }
 
 .section-title span{
-    color:#0f5c63;
+    color:#163A5F;
     font-weight:600;
 }
 
@@ -234,7 +234,7 @@ section{
 
 .price{
     font-size:1.5rem;
-    color:#0f5c63;
+    color:#163A5F;
     font-weight:700;
     margin:1rem 0;
 }
@@ -248,12 +248,12 @@ section{
 }
 
 .about-label{
-    color:#0f5c63;
+    color:#163A5F;
     font-weight:600;
 }
 
 .author-card{
-    background:#0f5c63;
+    background:#163A5F;
     color:white;
     padding:2rem;
     border-radius:24px;
@@ -263,7 +263,7 @@ section{
 /* CONTACT */
 
 .contact{
-    background:#0f5c63;
+    background:#163A5F;
     color:white;
 }
 
@@ -279,7 +279,7 @@ section{
 
 .big-whatsapp{
     background:white;
-    color:#0f5c63;
+    color:#163A5F;
     text-decoration:none;
     padding:18px 28px;
     border-radius:16px;
@@ -308,7 +308,7 @@ section{
     bottom:25px;
     width:70px;
     height:70px;
-    background:#0f5c63;
+    background:#163A5F;
     color:white;
     border-radius:50%;
     display:flex;
@@ -367,7 +367,7 @@ section{
 .promo-badge{
     display:inline-block;
     background:#dff5f6;
-    color:#0f5c63;
+    color:#163A5F;
     padding:10px 16px;
     border-radius:999px;
     font-weight:700;
