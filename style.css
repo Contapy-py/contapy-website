@@ -364,3 +364,19 @@ section{
     display:none;
 }
 }
+.promo-badge{
+    display:inline-block;
+    background:#dff5f6;
+    color:#0f5c63;
+    padding:10px 16px;
+    border-radius:999px;
+    font-weight:700;
+    margin:12px 0;
+}
+
+.small-note{
+    display:block;
+    margin-top:1rem;
+    color:#6b7280;
+    font-size:.9rem;
+}
