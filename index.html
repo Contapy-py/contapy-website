@@ -3,114 +3,431 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consulta RUC Paraguay | Buscar Contribuyente por RUC o Nombre - ContaPY</title>
+  <meta name="description" content="Consultá gratis datos de cualquier contribuyente de Paraguay por número de RUC o razón social. Base de datos DNIT actualizada. Verificá si tu RUC está obligado a facturación electrónica (e-Kuatia) según la RG DNIT N° 52/2026.">
+  <meta name="keywords" content="consulta RUC paraguay, buscar RUC paraguay, RUC contribuyente paraguay, DNIT paraguay, facturación electrónica paraguay, e-Kuatia obligatorio, RG 52 2026, grupos facturación electrónica, contador paraguay, IVA IRE paraguay">
+  <meta name="author" content="Lic. Alan Cardozo - ContaPY Estudio Contable">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.contapy.com.py/">
 
-  <title>ContaPY Estudio Contable | Contador en Paraguay | Facturación Electrónica e Impuestos</title>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Consulta RUC Paraguay Gratis | ContaPY">
+  <meta property="og:description" content="Buscá datos de contribuyentes por RUC o nombre. Verificá si tu empresa está obligada a e-Kuatia según la RG DNIT N° 52/2026. Servicios contables en Paraguay.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.contapy.com.py">
+  <meta property="og:locale" content="es_PY">
 
-<meta name="description" content="ContaPY Estudio Contable ofrece servicios de contabilidad, IVA, IRE SIMPLE, RESIMPLE, IPS, declaraciones juradas y facturación electrónica para emprendedores, asalariados y empresas en Paraguay.">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Consulta RUC Paraguay Gratis | ContaPY">
+  <meta name="twitter:description" content="Buscá datos de cualquier contribuyente paraguayo y verificá si está obligado a facturación electrónica.">
 
-<meta name="keywords" content="contador en paraguay, estudio contable paraguay, contador asuncion, contabilidad paraguay, facturación electrónica paraguay, IVA paraguay, IRE SIMPLE, RESIMPLE, IPS paraguay, declaraciones juradas paraguay, contador para emprendedores paraguay">
+  <!-- Schema.org WebSite (habilita sitelinks search en Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ContaPY - Consulta RUC Paraguay",
+    "url": "https://www.contapy.com.py",
+    "description": "Consulta gratuita de datos de contribuyentes de Paraguay por número de RUC o razón social. Base de datos DNIT.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.contapy.com.py/?ruc={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 
-<meta name="author" content="Lic. Alan Cardozo">
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "name": "ContaPY Estudio Contable",
+    "description": "Servicios de contabilidad, impuestos, IPS y facturación electrónica en Paraguay",
+    "url": "https://www.contapy.com.py",
+    "telephone": "+595974461453",
+    "email": "info@contapy.com.py",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Asunción",
+      "addressCountry": "PY"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Alan Cardozo",
+      "jobTitle": "Licenciado en Ciencias Contables"
+    },
+    "areaServed": "Paraguay",
+    "sameAs": ["https://www.hefion.com"]
+  }
+  </script>
 
-<meta name="robots" content="index, follow">
-
-<meta name="geo.region" content="PY">
-<meta name="geo.placename" content="Asunción">
-<meta name="language" content="Spanish">
-<meta name="revisit-after" content="7 days">
-
-<meta property="og:title" content="ContaPY Estudio Contable">
-<meta property="og:description" content="Contabilidad profesional en Paraguay para empresas, emprendedores y asalariados.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.contapy.com.py">
-<meta property="og:site_name" content="ContaPY Estudio Contable">
-
-  <link rel="stylesheet" href="style.css">
-
+  <!-- Schema.org FAQPage para RG 52/2026 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cómo sé si mi RUC está obligado a facturación electrónica?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La DNIT publicó la Resolución General N° 52/2026 que define los grupos 19 al 24, con fechas de obligatoriedad entre junio 2026 y septiembre 2027. Podés verificar tu RUC directamente en esta página ingresando el número sin dígito verificador."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué es la RG DNIT N° 52/2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Es la Resolución General de la Dirección Nacional de Ingresos Tributarios (DNIT) que incorpora a 3.000 nuevos contribuyentes a la obligatoriedad de emitir comprobantes electrónicos (e-Kuatia) en 6 grupos escalonados entre 2026 y 2027."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué pasa si no me adhiero a e-Kuatia en la fecha indicada?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El incumplimiento puede generar multas y sanciones por parte de la DNIT. Se recomienda iniciar el proceso con anticipación contactando a un contador profesional o adoptando un sistema homologado como HEFION."
+        }
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
   <!-- HEADER -->
-  <header class="header">
+  <header class="header" id="top">
     <div class="container nav">
-
       <div class="logo">
         <span class="logo-conta">Conta</span><span class="logo-py">PY</span>
       </div>
-
       <nav class="menu">
-        <a href="#inicio">Inicio</a>
+        <a href="#ruc">Consulta RUC</a>
+        <a href="#rg52">RG 52/2026</a>
+        <a href="#novedades">Novedades DNIT</a>
         <a href="#servicios">Servicios</a>
-        <a href="#planes">Planes</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#contacto">Contacto</a>
       </nav>
-
-      <a href="https://wa.me/595974461453?text=Hola%2C%20vi%20la%20pagina%20de%20ContaPY%20Estudio%20Contable%20y%20quisiera%20mas%20informacion%20sobre%20sus%20servicios."
-         target="_blank"
-         class="btn-nav">
-         WhatsApp
+      <a href="https://wa.me/595974461453?text=Hola%2C%20vi%20la%20pagina%20de%20ContaPY%20y%20quisiera%20mas%20informacion."
+         target="_blank" class="btn-nav">
+        💬 WhatsApp
       </a>
-
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <div class="container hero-content">
+  <!-- HERO / BÚSQUEDA RUC -->
+  <section class="hero" id="ruc">
+    <div class="container">
+      <div class="hero-inner">
+        <span class="badge">Base de datos DNIT · Consulta libre y gratuita</span>
+        <h1>Consultá datos de <span class="highlight">contribuyentes</span> en Paraguay</h1>
+        <p>Buscá por número de RUC o razón social. Información actualizada de la base de datos de la DNIT.</p>
 
-      <div class="hero-text">
-        <span class="badge">
-          Contabilidad profesional en Paraguay
-        </span>
+        <div class="search-box">
+          <div class="search-tabs">
+            <button class="tab active" data-tab="ruc" onclick="switchTab('ruc')">Por número de RUC</button>
+            <button class="tab" data-tab="nombre" onclick="switchTab('nombre')">Por nombre / razón social</button>
+          </div>
 
-        <h1>
-          Soluciones contables para empresas,
-          emprendedores y profesionales
-        </h1>
+          <div class="search-panel" id="panel-ruc">
+            <div class="search-row">
+              <input type="text" id="input-ruc" placeholder="Ej: 80012345-6" maxlength="20"
+                     onkeydown="if(event.key==='Enter') buscarRUC()" />
+              <button class="btn-search" onclick="buscarRUC()">
+                <span>Buscar</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              </button>
+            </div>
+            <p class="search-hint">Ingresá el número con o sin guión. Ej: 800123456 o 80012345-6</p>
+          </div>
 
-        <p>
-          En ContaPY Estudio Contable brindamos
-          servicios contables, tributarios y
-          administrativos con atención personalizada,
-          compromiso profesional y enfoque en el cumplimiento.
+          <div class="search-panel hidden" id="panel-nombre">
+            <div class="search-row">
+              <input type="text" id="input-nombre" placeholder="Ej: COPACO, Alan Cardozo..." maxlength="80"
+                     onkeydown="if(event.key==='Enter') buscarNombre()" />
+              <button class="btn-search" onclick="buscarNombre()">
+                <span>Buscar</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              </button>
+            </div>
+            <p class="search-hint">Ingresá parte del nombre o razón social del contribuyente.</p>
+          </div>
+        </div>
+
+        <!-- Resultados -->
+        <div id="resultado" class="resultado hidden"></div>
+
+        <p class="data-source">
+          Fuente: Base de datos pública de la
+          <a href="https://www.dnit.gov.py" target="_blank">DNIT</a> ·
+          Los datos corresponden a la información registrada por la administración tributaria.
         </p>
+      </div>
+    </div>
+  </section>
 
-        <div class="hero-buttons">
-          <a href="#contacto" class="btn-primary">
-            Solicitar asesoría
+  <!-- BANNER HEFION -->
+  <section class="hefion-section" id="hefion">
+    <div class="hefion-top">
+      <div class="container">
+
+        <div class="hefion-hero">
+          <!-- Left: texto -->
+          <div class="hefion-hero-text">
+            <div class="hefion-logo-row">
+              <!-- Logo H hex simplificado en SVG inline -->
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="24,2 44,13 44,35 24,46 4,35 4,13" fill="#0d3d6b" stroke="#1a6eb5" stroke-width="1.5"/>
+                <text x="24" y="32" text-anchor="middle" font-family="Inter,sans-serif" font-weight="900" font-size="22" fill="white">H</text>
+              </svg>
+              <span class="hefion-brand-name">HEFION</span>
+              <span class="hefion-py-badge">🇵🇾 100% Paraguaya</span>
+            </div>
+
+            <p class="hefion-tagline-sub">Sistema de Gestión Administrativa &amp; Financiera</p>
+            <h2 class="hefion-headline">Todo tu negocio,<br><span class="hefion-hl">bajo control.</span></h2>
+            <p class="hefion-desc">
+              Administrar un negocio no es fácil. Por eso creamos HEFION: una plataforma que reúne en un solo lugar
+              todo lo que necesitás — ventas, compras, caja, bancos, facturación electrónica, clientes, proveedores
+              y reportes financieros. <strong>Porque tu tiempo vale más que revisar planillas.</strong>
+            </p>
+
+            <div class="hefion-pills">
+              <span>🚀 Automatiza procesos</span>
+              <span>📊 Controlá tus finanzas</span>
+              <span>📈 Hacé crecer tu negocio</span>
+            </div>
+
+            <a href="https://www.hefion.com" target="_blank" class="btn-hefion-main">
+              Visitá HEFION.COM →
+            </a>
+          </div>
+
+          <!-- Right: módulos grid -->
+          <div class="hefion-modules">
+            <p class="hefion-modules-title">TODO LO QUE NECESITÁS EN UN SOLO SISTEMA</p>
+            <div class="hefion-mod-grid">
+              <div class="hefion-mod"><span>🏦</span>Caja y Bancos</div>
+              <div class="hefion-mod"><span>🛒</span>Ventas y Pedidos</div>
+              <div class="hefion-mod"><span>📦</span>Compras</div>
+              <div class="hefion-mod"><span>📋</span>Stock e Inventarios</div>
+              <div class="hefion-mod"><span>👥</span>Cuentas por Cobrar</div>
+              <div class="hefion-mod"><span>🤝</span>Cuentas por Pagar</div>
+              <div class="hefion-mod"><span>📚</span>Contabilidad</div>
+              <div class="hefion-mod"><span>⚖️</span>Balance Situacional</div>
+              <div class="hefion-mod"><span>📊</span>Reportes Financieros</div>
+              <div class="hefion-mod hefion-mod-dnit"><span>✅</span>Cumplí con la<br>normativa DNIT</div>
+              <div class="hefion-mod"><span>🧾</span>Facturación<br>Electrónica</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom strip: beneficios -->
+    <div class="hefion-bottom">
+      <div class="container hefion-benefits">
+        <div class="hefion-benefit">
+          <span class="hb-icon">⏱️</span>
+          <span>Ahorrá tiempo y automatizá procesos</span>
+        </div>
+        <div class="hefion-benefit">
+          <span class="hb-icon">📈</span>
+          <span>Tomá decisiones con información en tiempo real</span>
+        </div>
+        <div class="hefion-benefit">
+          <span class="hb-icon">🛡️</span>
+          <span>Más control, menos errores</span>
+        </div>
+        <div class="hefion-benefit">
+          <span class="hb-icon">☁️</span>
+          <span>Accesible desde cualquier lugar y dispositivo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOVEDADES DNIT -->
+  <section class="novedades" id="novedades">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Novedades</span>
+          <h2>Actualizaciones de la DNIT</h2>
+          <p>Resoluciones, calendario de vencimientos y comunicados oficiales.</p>
+        </div>
+        <a href="https://www.dnit.gov.py" target="_blank" class="btn-outline">
+          Ver sitio oficial →
+        </a>
+      </div>
+
+      <div class="novedades-grid">
+
+        <!-- Calendario de vencimientos -->
+        <div class="novedad-card featured-card">
+          <div class="card-tag">📅 Calendario fiscal</div>
+          <h3>Vencimientos tributarios</h3>
+          <p>Consultá el calendario de vencimientos vigente para IVA, IRE, IRP y demás obligaciones tributarias.</p>
+          <a href="https://www.dnit.gov.py/web/guest/calendario-de-vencimientos" target="_blank" class="card-link">
+            Ver calendario →
           </a>
+        </div>
 
-          <a href="https://wa.me/595974461453"
-             target="_blank"
-             class="btn-secondary">
-            WhatsApp
+        <!-- Resoluciones -->
+        <div class="novedad-card">
+          <div class="card-tag">📋 Resoluciones</div>
+          <h3>Últimas resoluciones</h3>
+          <p>Accedé a las resoluciones generales y particulares publicadas por la DNIT.</p>
+          <a href="https://www.dnit.gov.py/web/guest/resoluciones-generales" target="_blank" class="card-link">
+            Ver resoluciones →
+          </a>
+        </div>
+
+        <!-- e-Kuatia -->
+        <div class="novedad-card">
+          <div class="card-tag">🧾 e-Kuatia</div>
+          <h3>Facturación electrónica</h3>
+          <p>Normativa, plazos de obligatoriedad y documentación técnica para e-Kuatia.</p>
+          <a href="https://www.dnit.gov.py/web/guest/facturacion-electronica" target="_blank" class="card-link">
+            Ver más →
+          </a>
+        </div>
+
+        <!-- Formularios -->
+        <div class="novedad-card">
+          <div class="card-tag">📄 Formularios</div>
+          <h3>Formularios y declaraciones</h3>
+          <p>Accedé a los formularios oficiales para la presentación de declaraciones juradas.</p>
+          <a href="https://www.dnit.gov.py/web/guest/formularios" target="_blank" class="card-link">
+            Ver formularios →
+          </a>
+        </div>
+
+        <!-- Marangatú -->
+        <div class="novedad-card">
+          <div class="card-tag">💻 Marangatú</div>
+          <h3>Sistema Marangatú</h3>
+          <p>Accedé directamente al sistema de gestión tributaria en línea de la DNIT.</p>
+          <a href="https://marandu.set.gov.py" target="_blank" class="card-link">
+            Ingresar →
+          </a>
+        </div>
+
+        <!-- Aviso ContaPY -->
+        <div class="novedad-card cta-card">
+          <div class="card-tag">✉️ ContaPY</div>
+          <h3>¿Te perdés algún vencimiento?</h3>
+          <p>Con ContaPY Estudio Contable, un contador profesional se encarga de tus obligaciones tributarias.</p>
+          <a href="https://wa.me/595974461453" target="_blank" class="card-link green">
+            Consultar →
           </a>
         </div>
 
       </div>
+    </div>
+  </section>
 
-      <div class="hero-card">
-        <div class="card-highlight">
-          <h3>ContaPY Estudio Contable</h3>
+  <!-- RG 52/2026 - VERIFICADOR e-KUATIA -->
+  <section class="rg52-section" id="rg52">
+    <div class="container">
 
+      <div class="rg52-header">
+        <div class="rg52-header-text">
+          <span class="eyebrow">Resolución General DNIT N° 52/2026</span>
+          <h2>¿Tu empresa está obligada a <span class="highlight">facturación electrónica</span>?</h2>
           <p>
-            Soluciones contables modernas,
-            claras y profesionales para ayudarte
-            a mantener tu negocio en orden.
+            La DNIT publicó la RG N° 52/2026 que incorpora <strong>3.000 nuevos contribuyentes</strong>
+            a la obligatoriedad de emitir comprobantes electrónicos (e-Kuatia) en 6 grupos escalonados
+            entre junio 2026 y septiembre 2027. Verificá si tu RUC está en la lista.
           </p>
-
-          <div class="mini-items">
-            <span>✔ IVA e impuestos</span>
-            <span>✔ Facturación electrónica</span>
-            <span>✔ IPS y nómina</span>
-            <span>✔ Constitución de empresas</span>
+        </div>
+        <div class="rg52-grupos-resumen">
+          <div class="rg52-grupo-item grupo-19">
+            <span class="rg52-grupo-num">Grupo 19</span>
+            <span class="rg52-grupo-fecha">01/06/2026</span>
+            <span class="rg52-grupo-cant">500 contribuyentes</span>
           </div>
+          <div class="rg52-grupo-item grupo-20">
+            <span class="rg52-grupo-num">Grupo 20</span>
+            <span class="rg52-grupo-fecha">01/09/2026</span>
+            <span class="rg52-grupo-cant">500 contribuyentes</span>
+          </div>
+          <div class="rg52-grupo-item grupo-21">
+            <span class="rg52-grupo-num">Grupo 21</span>
+            <span class="rg52-grupo-fecha">01/12/2026</span>
+            <span class="rg52-grupo-cant">500 contribuyentes</span>
+          </div>
+          <div class="rg52-grupo-item">
+            <span class="rg52-grupo-num">Grupo 22</span>
+            <span class="rg52-grupo-fecha">02/03/2027</span>
+            <span class="rg52-grupo-cant">500 contribuyentes</span>
+          </div>
+          <div class="rg52-grupo-item">
+            <span class="rg52-grupo-num">Grupo 23</span>
+            <span class="rg52-grupo-fecha">01/06/2027</span>
+            <span class="rg52-grupo-cant">500 contribuyentes</span>
+          </div>
+          <div class="rg52-grupo-item">
+            <span class="rg52-grupo-num">Grupo 24</span>
+            <span class="rg52-grupo-fecha">01/09/2027</span>
+            <span class="rg52-grupo-cant">500 contribuyentes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verificador -->
+      <div class="rg52-checker">
+        <div class="rg52-checker-inner">
+          <h3>🔍 Verificá tu RUC ahora</h3>
+          <p>Ingresá el número de RUC <strong>sin dígito verificador</strong> (sin el guión y sin el número final)</p>
+          <div class="rg52-input-row">
+            <input type="text" id="rg52-input"
+                   placeholder="Ej: 4161473  (sin -X al final)"
+                   maxlength="15"
+                   onkeydown="if(event.key==='Enter') verificarRG52()" />
+            <button class="btn-search" onclick="verificarRG52()">
+              Verificar
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </button>
+          </div>
+          <div id="rg52-resultado" class="rg52-resultado hidden"></div>
+        </div>
+      </div>
+
+      <!-- CTA HEFION -->
+      <div class="rg52-cta-hefion">
+        <div class="rg52-cta-text">
+          <span class="rg52-cta-emoji">🧾</span>
+          <div>
+            <h3>Adoptá e-Kuatia con HEFION — sistema homologado por la DNIT</h3>
+            <p>
+              HEFION es un ERP paraguayo con facturación electrónica integrada. Emitís comprobantes
+              electrónicos, controlás tu negocio y cumplís con la normativa vigente — todo desde
+              una sola plataforma.
+            </p>
+          </div>
+        </div>
+        <div class="rg52-cta-buttons">
+          <a href="https://www.hefion.com" target="_blank" class="btn-primary">
+            Conocer HEFION →
+          </a>
+          <a href="https://wa.me/595974461453?text=Hola%2C%20necesito%20adoptar%20e-Kuatia%20%28facturaci%C3%B3n%20electr%C3%B3nica%29%20y%20me%20interesa%20HEFION."
+             target="_blank" class="btn-wa-small">
+            💬 Consultar por WhatsApp
+          </a>
         </div>
       </div>
 
@@ -118,108 +435,56 @@
   </section>
 
   <!-- SERVICIOS -->
-  <section class="services" id="servicios">
+  <section class="servicios" id="servicios">
     <div class="container">
-
-      <div class="section-title">
-        <span>Nuestros servicios</span>
-        <h2>Soluciones contables diseñadas para tu crecimiento</h2>
+      <div class="section-header center">
+        <span class="eyebrow">Nuestros servicios</span>
+        <h2>Contabilidad profesional para tu negocio</h2>
+        <p>Soluciones contables, tributarias y administrativas con atención personalizada.</p>
       </div>
 
       <div class="service-grid">
 
         <div class="service-card">
+          <div class="service-icon">📊</div>
           <h3>Contabilidad mensual</h3>
-          <p>Gestión ordenada de obligaciones contables para empresas y profesionales.</p>
+          <p>Gestión ordenada de tus obligaciones contables. Registros, libros y reportes al día.</p>
+          <a href="https://wa.me/595974461453?text=Consulta%20sobre%20contabilidad%20mensual" target="_blank" class="service-cta">Consultar →</a>
         </div>
 
         <div class="service-card">
+          <div class="service-icon">🏛️</div>
           <h3>IVA, IRE SIMPLE y RESIMPLE</h3>
-          <p>Cumplimiento tributario y presentación de obligaciones fiscales.</p>
+          <p>Cumplimiento tributario completo. Presentación de obligaciones fiscales sin errores ni atrasos.</p>
+          <a href="https://wa.me/595974461453?text=Consulta%20sobre%20IVA%20e%20impuestos" target="_blank" class="service-cta">Consultar →</a>
         </div>
 
         <div class="service-card">
+          <div class="service-icon">🧾</div>
           <h3>Facturación electrónica</h3>
-          <p>Implementación y acompañamiento para e-Kuatia y emisión electrónica.</p>
+          <p>Implementación y acompañamiento para e-Kuatia. Te guiamos paso a paso en la transición.</p>
+          <a href="https://wa.me/595974461453?text=Consulta%20sobre%20facturacion%20electronica" target="_blank" class="service-cta">Consultar →</a>
         </div>
 
         <div class="service-card">
+          <div class="service-icon">👥</div>
           <h3>IPS y nómina salarial</h3>
-          <p>Liquidación de salarios, aportes y obligaciones laborales.</p>
+          <p>Liquidación de salarios, cálculo de aportes y gestión de obligaciones laborales.</p>
+          <a href="https://wa.me/595974461453?text=Consulta%20sobre%20IPS%20y%20nomina" target="_blank" class="service-cta">Consultar →</a>
         </div>
 
         <div class="service-card">
+          <div class="service-icon">🏢</div>
           <h3>Constitución de empresas</h3>
-          <p>Acompañamiento para formalizar tu emprendimiento.</p>
+          <p>Acompañamiento completo para formalizar tu emprendimiento ante los organismos correspondientes.</p>
+          <a href="https://wa.me/595974461453?text=Consulta%20sobre%20constitucion%20de%20empresa" target="_blank" class="service-cta">Consultar →</a>
         </div>
 
         <div class="service-card">
+          <div class="service-icon">📋</div>
           <h3>Declaraciones juradas</h3>
-          <p>Presentación de obligaciones tributarias con respaldo profesional.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PLANES -->
-  <section class="plans" id="planes">
-    <div class="container">
-
-      <div class="section-title center">
-        <span>Planes</span>
-        <h2>Servicios adaptados a tu necesidad</h2>
-      </div>
-
-      <div class="plans-grid">
-
-        <div class="plan-card">
-         <h3>Facturación Electrónica</h3>
-
-<div class="promo-badge">
-  🎉 Primer mes sin costo
-</div>
-
-<div class="price">
-  Gs. 110.000 / mensual
-</div>
-
-<p>
-  Servicio de facturación electrónica
-  con acompañamiento profesional y
-  soporte personalizado.
-</p>
-
-<span class="small-note">
-  IVA incluido · Por punto de expedición ·
-  Sin límite de emisiones
-</span>
-        </div>
-
-        <div class="plan-card featured">
-          <h3>Asalariados</h3>
-
-          <div class="price">
-            Desde Gs. 99.000
-          </div>
-
-          <p>
-            Declaraciones, organización tributaria
-            y asistencia profesional.
-          </p>
-        </div>
-
-        <div class="plan-card">
-          <h3>Emprendedores y PyMES</h3>
-
-          <div class="price">
-            Plan personalizado
-          </div>
-
-          <p>
-            Soluciones adaptadas al tamaño
-            y necesidades de tu negocio.
-          </p>
+          <p>Presentación profesional de todas tus obligaciones tributarias con respaldo y seguridad.</p>
+          <a href="https://wa.me/595974461453?text=Consulta%20sobre%20declaraciones%20juradas" target="_blank" class="service-cta">Consultar →</a>
         </div>
 
       </div>
@@ -227,105 +492,102 @@
   </section>
 
   <!-- NOSOTROS -->
-  <section class="about" id="nosotros">
-    <div class="container about-box">
-
-      <div>
-        <span class="about-label">
-          Sobre nosotros
-        </span>
-
-        <h2>
-          Orden, confianza y compromiso profesional
-        </h2>
-
+  <section class="nosotros" id="nosotros">
+    <div class="container about-grid">
+      <div class="about-text">
+        <span class="eyebrow">Sobre nosotros</span>
+        <h2>Orden, confianza y compromiso profesional</h2>
         <p>
-          En ContaPY Estudio Contable acompañamos
-          a empresas, emprendedores y profesionales
-          en el cumplimiento de sus obligaciones
-          contables y tributarias.
+          En ContaPY Estudio Contable acompañamos a empresas, emprendedores y
+          profesionales en el cumplimiento de sus obligaciones contables y tributarias
+          en Paraguay.
         </p>
-
         <p>
-          Nuestro objetivo es ayudarte a mantener
-          una gestión clara, organizada y alineada
-          a las normativas vigentes en Paraguay.
+          Nuestro objetivo es que tu gestión esté siempre clara, organizada y
+          alineada a las normativas vigentes — para que vos puedas enfocarte
+          en lo que importa: hacer crecer tu negocio.
         </p>
+        <a href="https://wa.me/595974461453" target="_blank" class="btn-primary">
+          Hablar con un contador
+        </a>
       </div>
-
-      <div class="author-card">
+      <div class="about-card">
+        <div class="author-avatar">AC</div>
         <h3>Lic. Alan Cardozo</h3>
-        <span>Licenciado en Ciencias Contables</span>
+        <span class="author-title">Licenciado en Ciencias Contables</span>
+        <div class="author-services">
+          <span>✔ IVA e Impuestos</span>
+          <span>✔ Facturación electrónica</span>
+          <span>✔ IPS y nómina</span>
+          <span>✔ Declaraciones juradas</span>
+          <span>✔ Constitución de empresas</span>
+        </div>
       </div>
-
     </div>
   </section>
 
   <!-- CONTACTO -->
-  <section class="contact" id="contacto">
+  <section class="contacto" id="contacto">
     <div class="container">
-
-      <div class="section-title center">
-        <span>Contacto</span>
-        <h2>¿Necesitás ordenar tu contabilidad?</h2>
-
-        <p>
-          Recibí asesoramiento profesional.
-        </p>
-      </div>
-
-      <div class="contact-box">
-
-        <div class="contact-info">
-
-          <h3>ContaPY Estudio Contable</h3>
-
-          <p>📧 info@contapy.com.py</p>
-          <p>📱 0974 461 453</p>
-          <p>📍 Asunción y Gran Asunción</p>
-
+      <div class="contact-grid">
+        <div>
+          <span class="eyebrow light">Contacto</span>
+          <h2>¿Necesitás ordenar tu contabilidad?</h2>
+          <p>Escribinos y recibí asesoramiento profesional sin compromiso.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <span>info@contapy.com.py</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📱</span>
+              <span>0974 461 453</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <span>Asunción y Gran Asunción, Paraguay</span>
+            </div>
+          </div>
         </div>
-
-        <a href="https://wa.me/595974461453"
-           target="_blank"
-           class="big-whatsapp">
-          Hablar por WhatsApp
-        </a>
-
+        <div class="contact-cta">
+          <p>La forma más rápida de contactarnos:</p>
+          <a href="https://wa.me/595974461453?text=Hola%2C%20vi%20la%20pagina%20de%20ContaPY%20y%20quisiera%20una%20asesoría."
+             target="_blank" class="btn-whatsapp">
+            💬 Hablar por WhatsApp
+          </a>
+          <p class="cta-note">Respondemos en horario comercial</p>
+        </div>
       </div>
-
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer-content">
-
+    <div class="container footer-inner">
       <div>
-        <strong>ContaPY Estudio Contable</strong>
+        <div class="logo" style="margin-bottom:.4rem">
+          <span class="logo-conta" style="color:white">Conta</span><span class="logo-py" style="color:#6ee7a0">PY</span>
+        </div>
         <p>Contabilidad profesional en Paraguay</p>
       </div>
-
-      <div>
-        © 2026 ContaPY. Todos los derechos reservados.
+      <div class="footer-links">
+        <a href="#ruc">Consulta RUC</a>
+        <a href="#novedades">Novedades DNIT</a>
+        <a href="#servicios">Servicios</a>
+        <a href="https://www.hefion.com" target="_blank">HEFION</a>
       </div>
-
+      <div class="footer-copy">
+        © 2026 ContaPY Estudio Contable · Todos los derechos reservados
+      </div>
     </div>
   </footer>
 
   <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/595974461453"
-     target="_blank"
-     class="whatsapp-float">
-
-     <div class="whatsapp-tooltip">
-       ¿Necesitás ordenar tu contabilidad?
-     </div>
-
-     💬
+  <a href="https://wa.me/595974461453" target="_blank" class="float-wa" title="Consultar por WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
+  <script src="rg52_lookup.js"></script>
   <script src="script.js"></script>
-
 </body>
 </html>
