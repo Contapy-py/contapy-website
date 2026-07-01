@@ -1171,3 +1171,39 @@ body {
   .rg52-cta-buttons { flex-direction: row; flex-wrap: wrap; }
   .rg52-header-text h2 { font-size: 1.7rem; }
 }
+
+/* ===========================
+   NOVEDADES TABS
+   =========================== */
+.nov-tabs {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--gray-200);
+  padding-bottom: 1rem;
+}
+
+.nov-tab {
+  background: var(--gray-50);
+  border: 1.5px solid var(--gray-200);
+  color: var(--gray-700);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.nov-tab:hover { border-color: var(--green); color: var(--green); }
+
+.nov-tab.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: white;
+}
+
+.nov-panel { display: none; }
+.nov-panel.active { display: block; }

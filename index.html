@@ -9,8 +9,7 @@
   <meta name="author" content="Lic. Alan Cardozo - ContaPY Estudio Contable">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.contapy.com.py/">
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-  
+
   <!-- Open Graph -->
   <meta property="og:title" content="Consulta RUC Paraguay Gratis | ContaPY">
   <meta property="og:description" content="Buscá datos de contribuyentes por RUC o nombre. Verificá si tu empresa está obligada a e-Kuatia según la RG DNIT N° 52/2026. Servicios contables en Paraguay.">
@@ -261,83 +260,294 @@
     </div>
   </section>
 
-  <!-- NOVEDADES DNIT -->
+  <!-- NOVEDADES / RECURSOS -->
   <section class="novedades" id="novedades">
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="eyebrow">Novedades</span>
-          <h2>Actualizaciones de la DNIT</h2>
-          <p>Resoluciones, calendario de vencimientos y comunicados oficiales.</p>
+          <span class="eyebrow">Recursos para contribuyentes</span>
+          <h2>Todo lo que necesitás en un solo lugar</h2>
+          <p>Novedades, herramientas y links clave de los organismos tributarios y laborales de Paraguay.</p>
         </div>
-        <a href="https://www.dnit.gov.py" target="_blank" class="btn-outline">
-          Ver sitio oficial →
-        </a>
       </div>
 
-      <div class="novedades-grid">
-
-        <!-- Calendario de vencimientos -->
-        <div class="novedad-card featured-card">
-          <div class="card-tag">📅 Calendario fiscal</div>
-          <h3>Vencimientos tributarios</h3>
-          <p>Consultá el calendario de vencimientos vigente para IVA, IRE, IRP y demás obligaciones tributarias.</p>
-          <a href="https://www.dnit.gov.py/web/guest/calendario-de-vencimientos" target="_blank" class="card-link">
-            Ver calendario →
-          </a>
-        </div>
-
-        <!-- Resoluciones -->
-        <div class="novedad-card">
-          <div class="card-tag">📋 Resoluciones</div>
-          <h3>Últimas resoluciones</h3>
-          <p>Accedé a las resoluciones generales y particulares publicadas por la DNIT.</p>
-          <a href="https://www.dnit.gov.py/web/guest/resoluciones-generales" target="_blank" class="card-link">
-            Ver resoluciones →
-          </a>
-        </div>
-
-        <!-- e-Kuatia -->
-        <div class="novedad-card">
-          <div class="card-tag">🧾 e-Kuatia</div>
-          <h3>Facturación electrónica</h3>
-          <p>Normativa, plazos de obligatoriedad y documentación técnica para e-Kuatia.</p>
-          <a href="https://www.dnit.gov.py/web/guest/facturacion-electronica" target="_blank" class="card-link">
-            Ver más →
-          </a>
-        </div>
-
-        <!-- Formularios -->
-        <div class="novedad-card">
-          <div class="card-tag">📄 Formularios</div>
-          <h3>Formularios y declaraciones</h3>
-          <p>Accedé a los formularios oficiales para la presentación de declaraciones juradas.</p>
-          <a href="https://www.dnit.gov.py/web/guest/formularios" target="_blank" class="card-link">
-            Ver formularios →
-          </a>
-        </div>
-
-        <!-- Marangatú -->
-        <div class="novedad-card">
-          <div class="card-tag">💻 Marangatú</div>
-          <h3>Sistema Marangatú</h3>
-          <p>Accedé directamente al sistema de gestión tributaria en línea de la DNIT.</p>
-          <a href="https://marandu.set.gov.py" target="_blank" class="card-link">
-            Ingresar →
-          </a>
-        </div>
-
-        <!-- Aviso ContaPY -->
-        <div class="novedad-card cta-card">
-          <div class="card-tag">✉️ ContaPY</div>
-          <h3>¿Te perdés algún vencimiento?</h3>
-          <p>Con ContaPY Estudio Contable, un contador profesional se encarga de tus obligaciones tributarias.</p>
-          <a href="https://wa.me/595974461453" target="_blank" class="card-link green">
-            Consultar →
-          </a>
-        </div>
-
+      <!-- Tabs de fuentes -->
+      <div class="nov-tabs">
+        <button class="nov-tab active" onclick="switchNovTab('dnit', this)">🏛️ DNIT</button>
+        <button class="nov-tab" onclick="switchNovTab('ips', this)">🏥 IPS</button>
+        <button class="nov-tab" onclick="switchNovTab('otros', this)">🔗 Otros organismos</button>
+        <button class="nov-tab" onclick="switchNovTab('guias', this)">📖 Guías útiles</button>
       </div>
+
+      <!-- DNIT -->
+      <div class="nov-panel active" id="nov-dnit">
+        <div class="novedades-grid">
+
+          <div class="novedad-card featured-card">
+            <div class="card-tag">📋 Normativas</div>
+            <h3>Calendario y normativas vigentes</h3>
+            <p>Accedé a las normativas, resoluciones generales y disposiciones vigentes publicadas oficialmente por la DNIT.</p>
+            <a href="https://www.dnit.gov.py/web/portal-institucional/normativas" target="_blank" class="card-link">Ver normativas oficiales →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">📋 Resoluciones generales</div>
+            <h3>Últimas resoluciones de la DNIT</h3>
+            <p>Normativa vigente y nuevas disposiciones. Incluye la RG N° 52/2026 sobre e-Kuatia y actualizaciones de IVA, IRE e IRP.</p>
+            <a href="https://www.dnit.gov.py/web/portal-institucional/resoluciones1" target="_blank" class="card-link">Ver todas →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">🧾 e-Kuatia</div>
+            <h3>Facturación electrónica</h3>
+            <p>Accedé al portal institucional de la DNIT donde encontrarás la sección de e-Kuatia, normativa técnica y sistemas habilitados.</p>
+            <a href="https://www.dnit.gov.py/web/portal-institucional/" target="_blank" class="card-link">Ver portal DNIT →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">📄 Formularios oficiales</div>
+            <h3>Formularios y declaraciones</h3>
+            <p>Formularios para IVA (120), IRE (500), IRP (106), Retenciones y todos los impuestos vigentes. Disponibles en la sección de normativas de la DNIT.</p>
+            <a href="https://www.dnit.gov.py/web/portal-institucional/normativas" target="_blank" class="card-link">Ver formularios →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">💻 Sistema en línea</div>
+            <h3>Marangatú</h3>
+            <p>El sistema tributario en línea de la DNIT para declaraciones juradas, pago de impuestos y consultas de cuenta corriente.</p>
+            <a href="https://marandu.set.gov.py" target="_blank" class="card-link">Ingresar al sistema →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">📰 Noticias</div>
+            <h3>Últimas noticias de la DNIT</h3>
+            <p>Comunicados oficiales, avisos de actualización de RUC por terminación de dígito y novedades institucionales en tiempo real.</p>
+            <a href="https://www.dnit.gov.py/web/portal-institucional/noticias" target="_blank" class="card-link">Ver noticias →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">📢 RG N° 52/2026</div>
+            <h3>Nuevos obligados a e-Kuatia</h3>
+            <p>3.000 contribuyentes incorporados en 6 grupos con fechas entre junio 2026 y septiembre 2027. <strong>¿Estás en la lista?</strong></p>
+            <a href="#rg52" class="card-link">Verificar mi RUC →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">📚 Regímenes tributarios</div>
+            <h3>IRE SIMPLE y RESIMPLE</h3>
+            <p>Conocé los límites, requisitos y obligaciones del IRE SIMPLE y RESIMPLE para pequeñas empresas y unipersonales.</p>
+            <a href="https://www.dnit.gov.py/web/portal-institucional/" target="_blank" class="card-link">Consultar en DNIT →</a>
+          </div>
+
+          <div class="novedad-card cta-card">
+            <div class="card-tag">✉️ ContaPY</div>
+            <h3>¿Tenés dudas con tus impuestos?</h3>
+            <p>Un contador profesional te asesora en tus obligaciones, plazos y regímenes más convenientes para tu negocio.</p>
+            <a href="https://wa.me/595974461453?text=Hola%2C%20tengo%20dudas%20con%20mis%20impuestos%20y%20necesito%20asesoramiento." target="_blank" class="card-link green">Consultar gratis →</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- IPS -->
+      <div class="nov-panel" id="nov-ips">
+        <div class="novedades-grid">
+
+          <div class="novedad-card featured-card">
+            <div class="card-tag">📅 Vencimientos IPS</div>
+            <h3>Planilla mensual de aportes</h3>
+            <p>El aporte patronal se presenta del 1 al 10 de cada mes. El aporte obrero se descuenta del salario. Consultá las tablas de cálculo vigentes.</p>
+            <a href="https://www.ips.gov.py" target="_blank" class="card-link">Portal IPS →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">🧮 Tasas vigentes</div>
+            <h3>Porcentajes de aporte 2026</h3>
+            <p>Aporte patronal: <strong>16,5%</strong> sobre salarios. Aporte obrero: <strong>9%</strong>. Total sobre planilla: 25,5%.</p>
+            <a href="https://www.ips.gov.py/ips/pagos-y-servicios.html" target="_blank" class="card-link">Ver detalles →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">💻 Sistema en línea</div>
+            <h3>SUAM — Sistema unificado</h3>
+            <p>Registrá empleados, presentá planillas y consultá el estado de aportes de tu empresa en el sistema unificado de aportes y multas del IPS.</p>
+            <a href="https://suam.ips.gov.py" target="_blank" class="card-link">Ingresar →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">👥 Empleadores</div>
+            <h3>Inscripción patronal</h3>
+            <p>Si tenés empleados en relación de dependencia, debés registrarte como empleador ante el IPS antes del primer depósito de aporte.</p>
+            <a href="https://www.ips.gov.py/ips/empleadores.html" target="_blank" class="card-link">Cómo inscribirse →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">⚠️ Multas e infracciones</div>
+            <h3>Sanciones por mora</h3>
+            <p>La presentación tardía de planillas genera recargos del 2% mensual más intereses. La no presentación puede derivar en fiscalización.</p>
+            <a href="https://www.ips.gov.py" target="_blank" class="card-link">Ver normativa →</a>
+          </div>
+
+          <div class="novedad-card cta-card">
+            <div class="card-tag">✉️ ContaPY</div>
+            <h3>¿Manejamos tu planilla IPS?</h3>
+            <p>Liquidación de sueldos, cálculo de aportes y presentación mensual. Nunca más una multa por atraso.</p>
+            <a href="https://wa.me/595974461453?text=Hola%2C%20necesito%20que%20me%20gestionen%20la%20planilla%20del%20IPS%20mensualmente." target="_blank" class="card-link green">Consultar →</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- OTROS ORGANISMOS -->
+      <div class="nov-panel" id="nov-otros">
+        <div class="novedades-grid">
+
+          <div class="novedad-card featured-card">
+            <div class="card-tag">🏦 Ministerio de Hacienda</div>
+            <h3>Portal del Ministerio de Hacienda</h3>
+            <p>Presupuesto nacional, normas fiscales, decretos reglamentarios y estadísticas del sector público.</p>
+            <a href="https://www.hacienda.gov.py" target="_blank" class="card-link">Ver portal →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">⚖️ Banco Central del Paraguay</div>
+            <h3>BCP — Tipos de cambio</h3>
+            <p>Tipo de cambio oficial, tasas de referencia, estadísticas monetarias e informes del sistema financiero paraguayo.</p>
+            <a href="https://www.bcp.gov.py" target="_blank" class="card-link">Ver BCP →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">🏢 MTESS</div>
+            <h3>Ministerio de Trabajo</h3>
+            <p>Salario mínimo vigente, normativa laboral, registro de contratos y trámites para empleadores.</p>
+            <a href="https://www.trabajo.gov.py" target="_blank" class="card-link">Ver MTESS →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">📊 BVA</div>
+            <h3>Bolsa de Valores de Asunción</h3>
+            <p>Mercado de capitales, emisión de bonos y acciones. Información útil para empresas que buscan financiamiento.</p>
+            <a href="https://www.bvpasa.com.py" target="_blank" class="card-link">Ver BVA →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">📝 Trámites RUC</div>
+            <h3>Inscripción y modificación de RUC</h3>
+            <p>Consultá los trámites de inscripción, actualización y cancelación del RUC directamente en el portal institucional de la DNIT.</p>
+            <a href="https://www.dnit.gov.py/web/portal-institucional/" target="_blank" class="card-link">Trámites RUC →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">🏛️ MIC</div>
+            <h3>Ministerio de Industria y Comercio</h3>
+            <p>Registros comerciales, habilitaciones, licitaciones públicas y apoyo a PYMES y emprendedores.</p>
+            <a href="https://www.mic.gov.py" target="_blank" class="card-link">Ver MIC →</a>
+          </div>
+
+          <div class="novedad-card featured-card">
+            <div class="card-tag">⚡ SUACE / EAS</div>
+            <h3>Constituí tu empresa 100% online</h3>
+            <p>El sistema EAS (Empresa por Acciones Simplificada) del MIC permite crear tu empresa en hasta 72 horas, sin costo y sin capital mínimo, incluso como único accionista.</p>
+            <a href="https://eas.mic.gov.py" target="_blank" class="card-link">Ir al sistema EAS →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">📖 RUN</div>
+            <h3>Registro Único Nacional</h3>
+            <p>El RUN (que reemplazó al Registro Público de Comercio) gestiona la rúbrica de libros contables y societarios, antes a cargo del Poder Judicial.</p>
+            <a href="https://www.pj.gov.py" target="_blank" class="card-link">Ver más →</a>
+          </div>
+
+          <div class="novedad-card cta-card">
+            <div class="card-tag">✉️ ContaPY</div>
+            <h3>Constituí tu empresa con nosotros</h3>
+            <p>Te acompañamos en todos los trámites: EAS, RUC, rúbrica de libros, habilitación, MTESS, IPS — de principio a fin.</p>
+            <a href="https://wa.me/595974461453?text=Hola%2C%20quiero%20constituir%20una%20empresa%20y%20necesito%20asesoramiento." target="_blank" class="card-link green">Consultar →</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- GUÍAS ÚTILES -->
+      <div class="nov-panel" id="nov-guias">
+        <div class="novedades-grid">
+
+          <div class="novedad-card featured-card">
+            <div class="card-tag">📖 Guía básica</div>
+            <h3>¿Qué es el RUC y cómo obtenerlo?</h3>
+            <p>El RUC (Registro Único del Contribuyente) identifica a toda persona física o jurídica que realiza actividades económicas en Paraguay. Es obligatorio para facturar, contratar servicios y operar como empresa.</p>
+            <p style="margin-top:.5rem"><strong>¿Cómo obtenerlo?</strong> Se tramita presencialmente o por Marangatú con cédula de identidad y documentación de la actividad.</p>
+            <a href="https://www.dnit.gov.py/web/portal-institucional/" target="_blank" class="card-link">Tramitar mi RUC →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">💡 Guía de regímenes</div>
+            <h3>¿RESIMPLE, IRE SIMPLE o IRE?</h3>
+            <p><strong>RESIMPLE:</strong> hasta Gs. 80M de ingresos anuales. Cuota fija mensual.<br>
+            <strong>IRE SIMPLE:</strong> hasta Gs. 2.000M. Tasa del 10%.<br>
+            <strong>IRE General:</strong> más de Gs. 2.000M. Tasa del 10%.</p>
+            <a href="https://wa.me/595974461453?text=Hola%2C%20no%20sé%20en%20qué%20régimen%20estoy%20y%20necesito%20asesoramiento." target="_blank" class="card-link">¿Cuál me corresponde? →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">🧾 Guía e-Kuatia</div>
+            <h3>¿Cómo implementar facturación electrónica?</h3>
+            <p>1. Verificar si tu RUC está en los grupos obligados.<br>
+            2. Elegir un proveedor homologado (como HEFION).<br>
+            3. Inscribirse en el portal e-Kuatia de la DNIT.<br>
+            4. Capacitar al equipo y emitir tu primer comprobante.</p>
+            <a href="#rg52" class="card-link">¿Estoy obligado? →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">📆 Guía de vencimientos</div>
+            <h3>¿Cuándo vencen mis obligaciones?</h3>
+            <p>El IVA mensual vence según el último dígito del RUC entre los días 7 y 15 del mes siguiente. El IRE vence en julio. El IRP en junio. Las planillas IPS del 1 al 10 de cada mes.</p>
+            <a href="https://www.dnit.gov.py/web/portal-institucional/normativas" target="_blank" class="card-link">Ver calendario exacto →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">⚠️ Guía de multas</div>
+            <h3>¿Qué pasa si no presento a tiempo?</h3>
+            <p>La presentación tardía de declaraciones genera multas desde Gs. 200.000 para personas físicas y Gs. 400.000 para jurídicas, más intereses del 2% mensual sobre el impuesto omitido.</p>
+            <a href="https://wa.me/595974461453?text=Hola%2C%20tengo%20declaraciones%20atrasadas%20y%20necesito%20regularizarme." target="_blank" class="card-link">Regularizarme →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">🏗️ Guía para emprendedores</div>
+            <h3>Checklist para formalizar tu negocio</h3>
+            <p>✔ Obtener RUC en DNIT<br>
+            ✔ Inscribirse como empleador en IPS (si tenés personal)<br>
+            ✔ Habilitación municipal<br>
+            ✔ Registro en MTESS (contratos laborales)<br>
+            ✔ Sistema de facturación habilitado</p>
+            <a href="https://wa.me/595974461453?text=Hola%2C%20quiero%20formalizar%20mi%20negocio%20y%20necesito%20ayuda%20con%20los%20tr%C3%A1mites." target="_blank" class="card-link">Quiero asesorarme →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">📚 Guía de libros contables</div>
+            <h3>¿Cómo rubricar mis libros contables?</h3>
+            <p>Todo comerciante debe llevar Libro Diario e Inventario, y quienes son contribuyentes de IVA también Libro Mayor, IVA Compras e IVA Ventas. La rúbrica ya no se hace en el Poder Judicial: ahora se tramita por el <strong>RUN (Registro Único Nacional)</strong>, con Identidad Electrónica y Formulario Registral N° 11/18.</p>
+            <a href="https://wa.me/595974461453?text=Hola%2C%20necesito%20ayuda%20para%20rubricar%20mis%20libros%20contables." target="_blank" class="card-link">Te ayudamos a rubricarlos →</a>
+          </div>
+
+          <div class="novedad-card">
+            <div class="card-tag">🏢 Guía de constitución</div>
+            <h3>¿Cómo abrir una EAS en Paraguay?</h3>
+            <p>La Empresa por Acciones Simplificada (EAS) se constituye 100% online en <strong>eas.mic.gov.py</strong>, sin costo con el estatuto proforma, en hasta 72 horas y sin capital mínimo. Podés ser el único accionista. Una vez constituida, también necesita libros contables rubricados y debe inscribirse en la DNIT para obtener su RUC.</p>
+            <a href="https://wa.me/595974461453?text=Hola%2C%20quiero%20abrir%20una%20EAS%20y%20necesito%20asesoramiento%20contable." target="_blank" class="card-link">Asesorarme para abrir mi EAS →</a>
+          </div>
+
+          <div class="novedad-card cta-card">
+            <div class="card-tag">✉️ ContaPY</div>
+            <h3>¿Estás empezando tu negocio?</h3>
+            <p>Te acompañamos desde el primer trámite hasta tener todo en regla. Sin vueltas, sin tecnicismos innecesarios.</p>
+            <a href="https://wa.me/595974461453?text=Hola%2C%20estoy%20empezando%20un%20negocio%20y%20necesito%20un%20contador." target="_blank" class="card-link green">Hablar con un contador →</a>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 

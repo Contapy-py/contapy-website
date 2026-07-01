@@ -1,37 +1,49 @@
 /* ===========================
-   HEADER SCROLL SHADOW
+   SUPABASE CONFIG
    =========================== */
-window.addEventListener("scroll", () => {
-  const header = document.querySelector(".header");
-  header.style.boxShadow = window.scrollY > 30
-    ? "0 4px 20px rgba(0,0,0,.08)"
-    : "none";
-});
+const SUPA_URL = "https://obyfvkpycyjokzanayly.supabase.co";
+const SUPA_KEY = "sb_publishable_KqthDX95Et-dhyL4KbR0XQ_7oswYb0P";
+
+async function supaFetch(endpoint) {
+  const r = await fetch(`${SUPA_URL}/rest/v1/${endpoint}`, {
+    headers: {
+      "apikey": SUPA_KEY,
+      "Authorization": `Bearer ${SUPA_KEY}`,
+      "Content-Type": "application/json"
+    }
+  });
+  if (!r.ok) throw new Error(`HTTP ${r.status}`);
+  return r.json();
+}
 
 /* ===========================
-   SEARCH TABS
+   NOVEDADES TABS
+   =========================== */
+function switchNovTab(tab, btnEl) {
+  document.querySelectorAll(".nov-tab").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll(".nov-panel").forEach(p => p.classList.remove("active"));
+  btnEl.classList.add("active");
+  document.getElementById(`nov-${tab}`).classList.add("active");
+}
+
+/* ===========================
+   SEARCH TABS (RUC / Nombre)
    =========================== */
 function switchTab(tab) {
   document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
   document.querySelectorAll(".search-panel").forEach(p => p.classList.add("hidden"));
-
   document.querySelector(`[data-tab="${tab}"]`).classList.add("active");
   document.getElementById(`panel-${tab}`).classList.remove("hidden");
-
-  // clear result when switching
   document.getElementById("resultado").className = "resultado hidden";
 }
 
 /* ===========================
-   RUC SEARCH
-   Proxied via allorigins to
-   avoid CORS on ruc.com.py
+   HELPERS
    =========================== */
-
 function mostrarLoading() {
   const r = document.getElementById("resultado");
   r.className = "resultado loading";
-  r.innerHTML = "<p>🔎 Buscando en la base de datos de la DNIT...</p>";
+  r.innerHTML = "<p>🔎 Buscando en la base de datos de contribuyentes...</p>";
 }
 
 function mostrarError(msg) {
@@ -40,156 +52,156 @@ function mostrarError(msg) {
   r.innerHTML = `<p>⚠️ ${msg}</p>`;
 }
 
-// Normalise RUC: remove spaces, dots; keep digits and letters
-function normalizeRUC(value) {
-  return value.replace(/[\s.]/g, "").toUpperCase();
-}
-
+/* ===========================
+   BÚSQUEDA POR RUC
+   =========================== */
 async function buscarRUC() {
   const raw = document.getElementById("input-ruc").value.trim();
   if (!raw) { mostrarError("Ingresá un número de RUC para buscar."); return; }
 
-  const ruc = normalizeRUC(raw);
+  // Extraer solo la parte numérica (ignorar DV si lo escribieron con guión)
+  const rucNum = raw.split("-")[0].replace(/\D/g, "");
+  if (!rucNum) { mostrarError("El RUC debe contener números."); return; }
+
   mostrarLoading();
 
   try {
-    // ruc.com.py public endpoint
-    const url = `https://api.allorigins.win/get?url=${encodeURIComponent(
-      `https://www.ruc.com.py/public/ruc/info?nro=${ruc}`
-    )}`;
+    const data = await supaFetch(
+      `contribuyentes?ruc=eq.${rucNum}&select=ruc,razon_social,dv,situacion&limit=1`
+    );
 
-    const res  = await fetch(url);
-    const data = await res.json();
-    const body = JSON.parse(data.contents);
-
-    if (!body || body.error || (Array.isArray(body) && body.length === 0)) {
-      mostrarError("No se encontraron datos para el RUC ingresado. Verificá que sea correcto.");
+    if (!data || data.length === 0) {
+      mostrarError(`No se encontró el RUC <strong>${rucNum}</strong> en la base de datos de la DNIT.`);
       return;
     }
 
-    const c = Array.isArray(body) ? body[0] : body;
-    renderContribuyente(c);
+    renderContribuyente(data[0]);
 
   } catch (e) {
-    mostrarError(
-      "No se pudo conectar con la base de datos. Intentá nuevamente o consultá directamente en " +
-      "<a href='https://www.ruc.com.py' target='_blank'>ruc.com.py</a>."
-    );
+    mostrarError("No se pudo conectar con la base de datos. Intentá de nuevo en unos segundos.");
+    console.error(e);
   }
 }
 
+/* ===========================
+   BÚSQUEDA POR NOMBRE
+   =========================== */
 async function buscarNombre() {
   const nombre = document.getElementById("input-nombre").value.trim();
-  if (!nombre || nombre.length < 3) {
-    mostrarError("Ingresá al menos 3 caracteres para buscar por nombre.");
+  if (nombre.length < 3) {
+    mostrarError("Ingresá al menos 3 caracteres para buscar.");
     return;
   }
 
   mostrarLoading();
 
   try {
-    const url = `https://api.allorigins.win/get?url=${encodeURIComponent(
-      `https://www.ruc.com.py/public/ruc/buscar?razon=${encodeURIComponent(nombre)}&pagina=1`
-    )}`;
+    // ilike para búsqueda parcial insensible a mayúsculas
+    const encoded = encodeURIComponent(`%${nombre}%`);
+    const data = await supaFetch(
+      `contribuyentes?razon_social=ilike.${encoded}&select=ruc,razon_social,dv,situacion&order=situacion.asc,razon_social.asc&limit=30`
+    );
 
-    const res  = await fetch(url);
-    const data = await res.json();
-    const body = JSON.parse(data.contents);
-
-    if (!body || (Array.isArray(body.items) && body.items.length === 0) || body.error) {
-      mostrarError("No se encontraron contribuyentes con ese nombre.");
+    if (!data || data.length === 0) {
+      mostrarError(`No se encontraron contribuyentes con "<strong>${nombre}</strong>".`);
       return;
     }
 
-    const items = body.items || body;
-    if (!Array.isArray(items) || items.length === 0) {
-      mostrarError("No se encontraron resultados.");
-      return;
-    }
-
-    renderLista(items, body.total);
+    renderLista(data);
 
   } catch (e) {
-    mostrarError(
-      "No se pudo conectar con la base de datos. Intentá en " +
-      "<a href='https://www.ruc.com.py' target='_blank'>ruc.com.py</a>."
-    );
+    mostrarError("No se pudo conectar con la base de datos. Intentá de nuevo.");
+    console.error(e);
   }
 }
 
+/* ===========================
+   RENDER RESULTADO ÚNICO
+   =========================== */
 function renderContribuyente(c) {
   const r = document.getElementById("resultado");
   r.className = "resultado success";
 
-  const estado = (c.estado || c.dv_estado || "").toString().toLowerCase();
+  const sit = (c.situacion || "").toUpperCase();
   let badgeClass = "activo";
-  if (estado.includes("inactiv") || estado === "2") badgeClass = "inactivo";
-  else if (estado.includes("suspend") || estado === "3") badgeClass = "suspendido";
+  if (sit === "CANCELADO" || sit === "CANCELADO DEFINITIVO") badgeClass = "inactivo";
+  else if (sit === "SUSPENSION TEMPORAL") badgeClass = "suspendido";
+  else if (sit === "BLOQUEADO") badgeClass = "suspendido";
 
-  const estadoLabel = c.estado_desc || c.estado || c.dv_estado || "—";
+  const rucCompleto = c.dv !== null && c.dv !== undefined
+    ? `${c.ruc}-${c.dv}`
+    : `${c.ruc}`;
+
+  // Verificar si está en RG 52/2026
+  const rg52 = typeof RG52_LOOKUP !== "undefined" ? RG52_LOOKUP[String(c.ruc)] : null;
+  const rg52html = rg52
+    ? `<tr>
+        <td>e-Kuatia</td>
+        <td>
+          <span class="result-badge" style="background:#fff3cd;color:#92400e">
+            ⚠️ Obligatorio desde ${rg52.f} — Grupo ${rg52.g} (RG 52/2026)
+          </span>
+        </td>
+       </tr>`
+    : "";
 
   r.innerHTML = `
     <table class="result-table">
-      <tr><td>RUC</td><td><strong>${c.nro_ruc || c.ruc || "—"}</strong></td></tr>
-      <tr><td>Razón social</td><td><strong>${c.razon_social || c.nombre || "—"}</strong></td></tr>
-      <tr><td>Estado</td><td><span class="result-badge ${badgeClass}">${estadoLabel}</span></td></tr>
-      ${c.tipo_contribuyente ? `<tr><td>Tipo</td><td>${c.tipo_contribuyente}</td></tr>` : ""}
-      ${c.fecha_inicio_actividad ? `<tr><td>Inicio actividad</td><td>${c.fecha_inicio_actividad}</td></tr>` : ""}
-      ${c.actividad_economica ? `<tr><td>Actividad</td><td>${c.actividad_economica}</td></tr>` : ""}
-      ${c.oblig_iva !== undefined ? `<tr><td>Obligaciones</td><td>${formatObligaciones(c)}</td></tr>` : ""}
+      <tr><td>RUC</td><td><strong>${rucCompleto}</strong></td></tr>
+      <tr><td>Razón social</td><td><strong>${c.razon_social}</strong></td></tr>
+      <tr><td>Estado</td><td><span class="result-badge ${badgeClass}">${c.situacion}</span></td></tr>
+      ${rg52html}
     </table>
+    ${rg52 ? `<p style="font-size:.82rem;color:var(--gray-500);margin-top:.8rem">
+      Este contribuyente está obligado a facturar electrónicamente.
+      <a href="#rg52" style="color:var(--green)">Ver más sobre la RG 52/2026 →</a>
+    </p>` : ""}
   `;
 }
 
-function formatObligaciones(c) {
-  const obs = [];
-  if (c.oblig_iva === true  || c.oblig_iva === 1)  obs.push("IVA");
-  if (c.oblig_ire === true  || c.oblig_ire === 1)  obs.push("IRE");
-  if (c.oblig_irp === true  || c.oblig_irp === 1)  obs.push("IRP");
-  if (c.oblig_ips === true  || c.oblig_ips === 1)  obs.push("IPS");
-  return obs.length ? obs.join(", ") : "Sin obligaciones registradas";
-}
-
-function renderLista(items, total) {
+/* ===========================
+   RENDER LISTA DE RESULTADOS
+   =========================== */
+function renderLista(items) {
   const r = document.getElementById("resultado");
   r.className = "resultado success";
 
-  const liItems = items.map(c => `
-    <li onclick="mostrarDetalle(this)" 
-        data-ruc="${c.nro_ruc || c.ruc || ""}"
-        data-nombre="${(c.razon_social || c.nombre || "").replace(/"/g,'&quot;')}"
-        data-estado="${c.estado_desc || c.estado || ""}"
-        data-tipo="${c.tipo_contribuyente || ""}">
-      <strong>${c.razon_social || c.nombre || "—"}</strong>
-      <span>RUC: ${c.nro_ruc || c.ruc || "—"} · ${c.estado_desc || c.estado || ""}</span>
-    </li>
-  `).join("");
+  const liItems = items.map(c => {
+    const sit = (c.situacion || "").toUpperCase();
+    let badgeClass = "activo";
+    if (sit === "CANCELADO" || sit === "CANCELADO DEFINITIVO") badgeClass = "inactivo";
+    else if (sit === "SUSPENSION TEMPORAL" || sit === "BLOQUEADO") badgeClass = "suspendido";
+    const rucCompleto = c.dv !== null && c.dv !== undefined ? `${c.ruc}-${c.dv}` : `${c.ruc}`;
+    return `
+      <li onclick="mostrarDetalle(${c.ruc})">
+        <strong>${c.razon_social}</strong>
+        <span>RUC: ${rucCompleto} · <span class="result-badge ${badgeClass}" style="font-size:.75rem;padding:2px 8px">${c.situacion}</span></span>
+      </li>`;
+  }).join("");
 
   r.innerHTML = `
     <p style="font-size:.85rem;color:var(--gray-500);margin-bottom:.8rem">
-      Se encontraron <strong>${total || items.length}</strong> resultado(s). Hacé clic para ver detalles.
+      Se encontraron <strong>${items.length}</strong> resultado(s)${items.length === 30 ? " (mostrando los primeros 30)" : ""}. Hacé clic para ver detalles.
     </p>
     <ul class="result-list">${liItems}</ul>
-    ${total > items.length
-      ? `<button class="result-more-btn" onclick="alert('Para ver más resultados, visitá ruc.com.py')">Ver más resultados →</button>`
-      : ""}
   `;
 }
 
-function mostrarDetalle(el) {
-  const c = {
-    nro_ruc: el.dataset.ruc,
-    razon_social: el.dataset.nombre,
-    estado_desc: el.dataset.estado,
-    tipo_contribuyente: el.dataset.tipo
-  };
-  renderContribuyente(c);
+async function mostrarDetalle(ruc) {
+  mostrarLoading();
+  try {
+    const data = await supaFetch(
+      `contribuyentes?ruc=eq.${ruc}&select=ruc,razon_social,dv,situacion&limit=1`
+    );
+    if (data && data.length > 0) renderContribuyente(data[0]);
+  } catch (e) {
+    mostrarError("No se pudo cargar el detalle.");
+  }
 }
 
 /* ===========================
    RG 52/2026 VERIFICADOR
    =========================== */
-
 function verificarRG52() {
   const raw = document.getElementById("rg52-input").value.trim().replace(/\D/g, "");
   const el  = document.getElementById("rg52-resultado");
@@ -200,7 +212,7 @@ function verificarRG52() {
     return;
   }
 
-  const entry = RG52_LOOKUP[raw];
+  const entry = typeof RG52_LOOKUP !== "undefined" ? RG52_LOOKUP[raw] : null;
   el.className = "rg52-resultado";
 
   if (entry) {
@@ -265,7 +277,9 @@ function verificarRG52() {
   }
 }
 
-/* Pre-fill from URL ?ruc=XXXX */
+/* ===========================
+   PRE-FILL DESDE URL ?ruc=
+   =========================== */
 window.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const rucParam = params.get("ruc");
@@ -275,13 +289,19 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+/* ===========================
+   HEADER SCROLL SHADOW
+   =========================== */
+window.addEventListener("scroll", () => {
+  document.querySelector(".header").style.boxShadow =
+    window.scrollY > 30 ? "0 4px 20px rgba(0,0,0,.08)" : "none";
+});
 
+/* ===========================
+   CARD ANIMATIONS
    =========================== */
 window.addEventListener("load", () => {
-  const cards = document.querySelectorAll(
-    ".novedad-card, .service-card, .about-card"
-  );
-
+  const cards = document.querySelectorAll(".novedad-card, .service-card, .about-card");
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
