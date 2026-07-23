@@ -887,12 +887,197 @@ body {
 .footer-copy { font-size: .82rem; }
 
 /* ===========================
+   PROMO BANNER (rotativo, permanente)
+   =========================== */
+.promo-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 850;
+  background: linear-gradient(90deg, var(--green-dark), var(--green));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 10px 52px 10px 18px;
+  box-shadow: 0 -4px 18px rgba(0,0,0,.15);
+  min-height: 52px;
+  overflow: hidden;
+}
+.promo-banner.hidden { display: none; }
+
+.promo-banner-track {
+  width: 100%;
+  position: relative;
+  min-height: 32px;
+}
+
+.promo-banner-item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .5s ease, transform .5s ease;
+  pointer-events: none;
+}
+.promo-banner-item.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.promo-banner-item p {
+  font-size: .92rem;
+  font-weight: 500;
+}
+.promo-banner-item p strong { color: #d8ffe8; }
+
+.promo-banner-cta {
+  background: #fff;
+  color: var(--green-dark);
+  font-weight: 700;
+  font-size: .84rem;
+  padding: 6px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform .15s;
+}
+.promo-banner-cta:hover { transform: scale(1.05); }
+
+.promo-banner-close {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,.18);
+  border: none;
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: .8rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s;
+}
+.promo-banner-close:hover { background: rgba(255,255,255,.32); }
+
+/* ===========================
+   PROMO POPUP (modal contextual)
+   =========================== */
+.promo-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15,23,20,.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: promoFadeIn .25s ease;
+}
+.promo-modal-overlay.hidden { display: none; }
+
+@keyframes promoFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.promo-modal {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  max-width: 420px;
+  width: 100%;
+  padding: 32px 28px 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.3);
+  text-align: center;
+  animation: promoPopIn .3s ease;
+}
+
+@keyframes promoPopIn {
+  from { opacity: 0; transform: scale(.92) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.promo-modal-close {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  background: var(--gray-100);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: .85rem;
+  color: var(--gray-500);
+  transition: background .15s;
+}
+.promo-modal-close:hover { background: var(--gray-200); }
+
+.promo-modal-icon {
+  font-size: 2.4rem;
+  margin-bottom: 6px;
+}
+
+.promo-modal h4 {
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.promo-modal p {
+  font-size: .92rem;
+  color: var(--gray-500);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.promo-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.promo-modal-btn {
+  display: block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: .92rem;
+  text-decoration: none;
+  transition: transform .15s, opacity .15s;
+}
+.promo-modal-btn:hover { transform: translateY(-1px); }
+
+.promo-modal-btn.primary {
+  background: var(--green);
+  color: #fff;
+}
+.promo-modal-btn.secondary {
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+/* ===========================
    FLOAT WHATSAPP
    =========================== */
 .float-wa {
   position: fixed;
   right: 24px;
   bottom: 24px;
+  transition: transform .2s, bottom .25s;
   width: 58px;
   height: 58px;
   background: #25d366;
@@ -907,6 +1092,14 @@ body {
   z-index: 900;
 }
 .float-wa:hover { transform: scale(1.1); }
+.float-wa.con-banner { bottom: 78px; }
+
+body.con-promo-banner { padding-bottom: 58px; }
+@media (max-width: 640px) {
+  body.con-promo-banner { padding-bottom: 84px; }
+  .promo-banner { padding: 10px 46px 10px 14px; }
+  .promo-banner-item { flex-direction: column; gap: 6px; }
+}
 
 /* ===========================
    RESPONSIVE
